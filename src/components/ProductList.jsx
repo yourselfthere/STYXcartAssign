@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/productList.css";
 import { useCart } from "../CartContext";
 const ProductList = ({ item }) => {
-  const { handleClick } = useCart();
+  const { cart, handleClick } = useCart();
+  const [isAdded, setIsAdded] = useState(false);
   const { title, author, price, img } = item;
+
+  useEffect(() => {
+    // Check if the item is already in the cart on initial render
+    const isPresent = cart.some((product) => product.id === item.id);
+    setIsAdded(isPresent);
+  }, [cart, item.id]);
+
+  const handleAddToCart = () => {
+    handleClick(item);
+    setIsAdded(true);
+  };
+
   return (
     <div className="products">
       <div className="imgcontainer">
@@ -17,11 +30,14 @@ const ProductList = ({ item }) => {
         <p>{author}</p>
         <p>Price- {price} Rs</p>
         <button
-          onClick={() => {
-            handleClick(item);
+          onClick={handleAddToCart}
+          disabled={isAdded}
+          style={{
+            backgroundColor: isAdded ? "grey" : "",
+            color: isAdded ? "black" : "",
           }}
         >
-          Add to Cart
+          {isAdded ? "Item Added to Cart" : "Add to Cart"}
         </button>
       </div>
     </div>

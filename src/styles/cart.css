@@ -1,67 +1,49 @@
-/* .gridOf2 {
-  width: 80%;
-  margin: auto;
-  margin-top: 5%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
-}
-.total {
-  font-weight: bold;
-  margin-top: 20px;
+/* Global Styles */
+* {
+  font-family: "Times New Roman", Times, serif;
+  box-sizing: border-box; /* Ensure padding and borders don't affect width */
 }
 
-.cart_box {
-  width: 250px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-}
-
-.cart_box img {
-  width: 100%;
+html,
+body {
+  margin: 0;
+  padding: 0;
   height: 100%;
-  height: auto;
-  object-fit: cover;
 }
-
-.cart_box:hover {
-  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-.cart_img {
-  border-bottom: 4px solid black;
-  padding-bottom: 2px;
-}
-
-.overlay {
-  display: flex;
-  flex-wrap: nowrap;
-} */
 
 .overlay {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  padding-bottom: 60px; /* Space for the total-container */
 }
 
 .gridOf2 {
   display: flex;
   flex-wrap: wrap;
   gap: 20px; /* Adjust the gap as needed */
+  flex: 1;
 }
 
 .cart_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   border: 1px solid #ccc;
   padding: 10px;
   width: 250px; /* Adjust the width as needed */
 }
 
+.priceOfBook {
+  font-weight: bolder;
+}
+
 .cart_img img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
 
 .details {
@@ -69,14 +51,24 @@
   flex-direction: column;
 }
 
-.total {
-  align-self: center; /* Aligns the total price to the start of the overlay */
+.btnsAndPrice {
+  display: flex;
+  justify-content: space-between;
+}
 
-  border: 1px solid #ccc;
-  padding-right: 50px;
-  min-width: 200px; /* Adjust the width as needed */
-  min-height: 200px;
-  text-align: right; /* Align text to the right */
+.total {
+  position: fixed; /* Fix it in place */
+  bottom: 0; /* Align to the bottom */
+  right: 0; /* Align to the right */
+  margin: 20px; /* Space from edges */
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 300px;
+  background-color: #f9f9f9;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* Ensure it appears above other elements */
 }
 
 .cart_box:hover {
@@ -89,6 +81,65 @@
   padding-bottom: 2px;
 }
 
+.total button {
+  padding: 5px 10px;
+  align-self: start;
+  border: none;
+  color: #fff;
+  background-color: #299ff3;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.total button:hover {
+  background-color: #38a7f6;
+}
+
+.total:hover {
+  transform: scale(1.02);
+}
+
+.total p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.order-summary {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.order-summary:hover {
+  transform: scale(1.02);
+}
+
+.order-summary h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+}
+
+.order-summary p {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #555;
+}
+
+.order-summary p:last-child {
+  font-weight: bold;
+  color: #28a745;
+  font-size: 20px;
+}
+
+/* Media Queries for Different Screen Sizes */
 @media (max-width: 812px) {
   .overlay {
     flex-direction: column;
@@ -97,14 +148,13 @@
 
   .gridOf2 {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-columns: repeat(2, 1fr); /* Two columns for mobile */
     gap: 10px; /* Adjust the gap as needed */
   }
 
   .cart_box {
     width: 100%; /* Full width for mobile */
-    max-width: none;
-    /* Remove max-width to use grid layout */
+    max-width: none; /* Remove max-width to use grid layout */
   }
 
   .total {

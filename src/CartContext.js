@@ -6,7 +6,10 @@ const CartContext = createContext();
 
 // Create provider component
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
   const [warning, setWarning] = useState(false);
   const [show, setShow] = useState(true);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -19,7 +22,10 @@ export const CartProvider = ({ children }) => {
       setTimeout(() => setWarning(false), 2000);
       return;
     }
-    setCart([...cart, item]);
+
+    const updatedCart = [...cart, item];
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   // Function to handle item quantity change
@@ -30,6 +36,7 @@ export const CartProvider = ({ children }) => {
         : data
     );
     setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   // Calculate total price
@@ -39,6 +46,10 @@ export const CartProvider = ({ children }) => {
       0
     );
     setTotalPrice(newTotalPrice);
+  }, [cart]);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
   return (
