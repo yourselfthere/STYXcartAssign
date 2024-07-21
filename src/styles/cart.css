@@ -1,0 +1,132 @@
+/* .gridOf2 {
+  width: 80%;
+  margin: auto;
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+}
+.total {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.cart_box {
+  width: 250px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.cart_box img {
+  width: 100%;
+  height: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.cart_box:hover {
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.cart_img {
+  border-bottom: 4px solid black;
+  padding-bottom: 2px;
+}
+
+.overlay {
+  display: flex;
+  flex-wrap: nowrap;
+} */
+
+.overlay {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gridOf2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap as needed */
+}
+
+.cart_box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 250px; /* Adjust the width as needed */
+}
+
+.cart_img img {
+  max-width: 100%;
+  height: auto;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.total {
+  align-self: center; /* Aligns the total price to the start of the overlay */
+
+  border: 1px solid #ccc;
+  padding-right: 50px;
+  min-width: 200px; /* Adjust the width as needed */
+  min-height: 200px;
+  text-align: right; /* Align text to the right */
+}
+
+.cart_box:hover {
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.cart_img {
+  border-bottom: 4px solid black;
+  padding-bottom: 2px;
+}
+
+@media (max-width: 812px) {
+  .overlay {
+    flex-direction: column;
+    height: auto; /* Adjust the height for smaller screens */
+  }
+
+  .gridOf2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 10px; /* Adjust the gap as needed */
+  }
+
+  .cart_box {
+    width: 100%; /* Full width for mobile */
+    max-width: none;
+    /* Remove max-width to use grid layout */
+  }
+
+  .total {
+    width: 100%;
+    max-width: 375px; /* Ensure it doesn't exceed the viewport width */
+    text-align: center; /* Center the text for mobile */
+    margin-top: 20px; /* Add some spacing on top */
+    padding: 10px; /* Adjust padding for better mobile experience */
+  }
+}
+
+@media (max-width: 375px) {
+  .gridOf2 {
+    grid-template-columns: 1fr; /* One column on smaller screens */
+    gap: 10px; /* Adjust the gap as needed */
+  }
+
+  .total {
+    width: 100%;
+    max-width: 100%; /* Ensure it uses full width */
+    text-align: center; /* Center the text */
+    margin-top: 20px; /* Add some spacing on top */
+    padding: 10px; /* Adjust padding for better mobile experience */
+  }
+}
