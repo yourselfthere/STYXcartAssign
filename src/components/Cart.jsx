@@ -67,9 +67,8 @@ const Cart = () => {
             </div>
           ))}
         </div>
-      </div>
 
-      {/* {!showSummary && (
+        {/* {!showSummary && (
           <div className="total">
             <p>Total Price of your Cart : Rs. {totalPrice}</p>
             <button className="checkout-btn" onClick={handleCheckout}>
@@ -78,22 +77,23 @@ const Cart = () => {
           </div>
         )} */}
 
-      {!showSummary && (
-        <div className="total">
-          <p>Total Price of your Cart : Rs. {totalPrice}</p>
-          <button className="checkout-btn" onClick={handleCheckout}>
-            Checkout
-          </button>
-        </div>
-      )}
+        {!showSummary && (
+          <div className="total">
+            <p>Total Price of your Cart : Rs. {totalPrice}</p>
+            <button className="checkout-btn" onClick={handleCheckout}>
+              Checkout
+            </button>
+          </div>
+        )}
 
-      {showSummary && (
-        <div className="order-summary">
-          <h2>Order Summary</h2>
-          <p>Total Price: Rs. {finalPrice}</p>
-          <p>Thank you for your purchase!</p>
-        </div>
-      )}
+        {showSummary && (
+          <div className="order-summary">
+            <h2>Order Summary</h2>
+            <p>Total Price: Rs. {finalPrice}</p>
+            <p>Thank you for your purchase!</p>
+          </div>
+        )}
+      </div>
     </>
   );
 };

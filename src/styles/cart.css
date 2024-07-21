@@ -13,6 +13,8 @@ body {
 
 .overlay {
   display: flex;
+
+  margin-top: 20px;
   justify-content: space-between;
   align-items: flex-start;
   gap: 20px;
@@ -57,9 +59,6 @@ body {
 }
 
 .total {
-  position: fixed; /* Fix it in place */
-  bottom: 0; /* Align to the bottom */
-  right: 0; /* Align to the right */
   margin: 20px; /* Space from edges */
   border: 2px solid #ccc;
   border-radius: 10px;
