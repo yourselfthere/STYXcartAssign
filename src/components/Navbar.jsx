@@ -1,7 +1,9 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/navbar.css";
-const Navbar = ({ size, setShow }) => {
+import { useCart } from "../CartContext";
+const Navbar = ({ size }) => {
+  const { setShow } = useCart();
   return (
     <nav>
       <div className="nav_in">

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../styles/cart.css";
-const Cart = ({ cart, setCart, handleChange }) => {
-  const [price, setPrice] = useState(0);
+import { useCart } from "../CartContext";
+const Cart = () => {
+  const { cart, setCart, handleChange, totalPrice } = useCart();
+
   const [showSummary, setShowSummary] = useState(false);
   const [finalPrice, setFinalPrice] = useState(0);
   const handleRemove = (id) => {
@@ -9,18 +11,8 @@ const Cart = ({ cart, setCart, handleChange }) => {
     setCart(arr);
   };
 
-  const handlePrice = () => {
-    let ans = 0;
-    cart.map((item) => {
-      ans += item.amount * item.price;
-    });
-    setPrice(ans);
-  };
-  useEffect(() => {
-    handlePrice();
-  });
   const handleCheckout = () => {
-    setFinalPrice(price);
+    setFinalPrice(totalPrice);
     setShowSummary(true);
     setCart([]);
   };
@@ -72,7 +64,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
       </div>
       {!showSummary && (
         <div className="total">
-          <p>Total Price of your Cart : Rs - {price}</p>
+          <p>Total Price of your Cart : Rs - {totalPrice}</p>
           <button className="checkout-btn" onClick={handleCheckout}>
             Checkout
           </button>

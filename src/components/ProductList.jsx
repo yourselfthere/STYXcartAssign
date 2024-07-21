@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/productList.css";
-const ProductList = ({ item, handleClick }) => {
+import { useCart } from "../CartContext";
+const ProductList = ({ item }) => {
+  const { handleClick } = useCart();
   const { title, author, price, img } = item;
   return (
     <div className="products">
