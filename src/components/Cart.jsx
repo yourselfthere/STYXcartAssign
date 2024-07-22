@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../styles/cart.css";
 import { useCart } from "../CartContext";
-
+import Modal from "./Modal";
 const Cart = () => {
   const { cart, setCart, handleChange, totalPrice, setShow } = useCart();
 
@@ -19,8 +19,6 @@ const Cart = () => {
 
     setFinalPrice(totalPrice);
     setShowSummary(true);
-
-    //dummy
 
     setCart([]);
 
@@ -40,6 +38,7 @@ const Cart = () => {
                 <p>{item.title}</p>
                 <p>{item.author}</p>
                 <p className="priceOfBook">Rs. {item.price}</p>
+                <p>[{item.category}]</p>
 
                 <div className="btnsAndPrice">
                   <div>
@@ -67,23 +66,11 @@ const Cart = () => {
                     Remove
                   </button>
                 </div>
-
-                {/* <div>
-                  <span>Rs. {item.price}</span>
-                </div> */}
               </div>
             </div>
           ))}
         </div>
 
-        {/* {!showSummary && (
-          <div className="total">
-            <p>Total Price of your Cart : Rs. {totalPrice}</p>
-            <button className="checkout-btn" onClick={handleCheckout}>
-              Checkout
-            </button>
-          </div>
-        )} */}
         <div className="total-container">
           {!showSummary && (
             <div className="total">
@@ -94,15 +81,20 @@ const Cart = () => {
             </div>
           )}
         </div>
-        <div className="endOfOrder">
-          {showSummary && (
-            <div className="order-summary">
-              <h2>Order Summary</h2>
-              <p>Total Price: Rs. {finalPrice}</p>
-              <p>Thank you for your purchase!</p>
-            </div>
-          )}
-        </div>
+
+        <Modal
+          show={showSummary}
+          onClose={() => {
+            setShowSummary(false);
+            setShow(true);
+          }}
+        >
+          <div className="order-summary">
+            <h2>Order Summary</h2>
+            <p>Total Price: Rs. {finalPrice}</p>
+            <p>Thank you for your purchase!</p>
+          </div>
+        </Modal>
       </div>
     </>
   );
