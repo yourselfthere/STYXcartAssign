@@ -125,6 +125,14 @@ body {
   transform: scale(1.02);
 }
 
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+}
+
 .order-summary h2 {
   margin-bottom: 20px;
   color: #333;
@@ -167,6 +175,9 @@ body {
     padding: 15px;
   }
 
+  .order-summary {
+    margin-bottom: 100%;
+  }
   .total p,
   .order-summary p {
     font-size: 14px;
@@ -191,6 +202,9 @@ body {
   .total p,
   .order-summary p {
     font-size: 12px;
+  }
+  .order-summary {
+    margin-bottom: 50%;
   }
 
   .checkout-btn {

@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/cart.css";
 import { useCart } from "../CartContext";
+
 const Cart = () => {
-  const { cart, setCart, handleChange, totalPrice } = useCart();
+  const { cart, setCart, handleChange, totalPrice, setShow } = useCart();
 
   const [showSummary, setShowSummary] = useState(false);
   const [finalPrice, setFinalPrice] = useState(0);
+
   const handleRemove = (id) => {
     const arr = cart.filter((item) => item.id !== id);
     setCart(arr);
@@ -13,9 +15,15 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
+    console.log("Checkout clicked");
+
     setFinalPrice(totalPrice);
     setShowSummary(true);
+
+    //dummy
+
     setCart([]);
+
     localStorage.removeItem("cart");
   };
 
