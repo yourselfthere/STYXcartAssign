@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../styles/cart.css";
 import { useCart } from "../CartContext";
 const Cart = () => {
@@ -26,7 +26,7 @@ const Cart = () => {
           {cart?.map((item) => (
             <div className="cart_box" key={item.id}>
               <div className="cart_img">
-                <img src={item.img} />
+                <img src={item.img} alt="trust me it was there" />
               </div>
               <div className="details">
                 <p>{item.title}</p>
@@ -76,23 +76,25 @@ const Cart = () => {
             </button>
           </div>
         )} */}
-
-        {!showSummary && (
-          <div className="total">
-            <p>Total Price of your Cart : Rs. {totalPrice}</p>
-            <button className="checkout-btn" onClick={handleCheckout}>
-              Checkout
-            </button>
-          </div>
-        )}
-
-        {showSummary && (
-          <div className="order-summary">
-            <h2>Order Summary</h2>
-            <p>Total Price: Rs. {finalPrice}</p>
-            <p>Thank you for your purchase!</p>
-          </div>
-        )}
+        <div className="total-container">
+          {!showSummary && (
+            <div className="total">
+              <p>Total Price of your Cart : Rs. {totalPrice}</p>
+              <button className="checkout-btn" onClick={handleCheckout}>
+                Checkout
+              </button>
+            </div>
+          )}
+        </div>
+        <div className="endOfOrder">
+          {showSummary && (
+            <div className="order-summary">
+              <h2>Order Summary</h2>
+              <p>Total Price: Rs. {finalPrice}</p>
+              <p>Thank you for your purchase!</p>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

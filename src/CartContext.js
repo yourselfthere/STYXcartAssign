@@ -16,16 +16,20 @@ export const CartProvider = ({ children }) => {
 
   // Function to add item to cart
   const handleClick = (item) => {
-    let isPresent = cart.some((product) => item.id === product.id);
-    if (isPresent) {
-      setWarning(true);
-      setTimeout(() => setWarning(false), 2000);
-      return;
-    }
-
-    const updatedCart = [...cart, item];
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCart((prevCart) => {
+      // Check if the item is already in the cart
+      const isPresent = prevCart.some((product) => product.id === item.id);
+      if (isPresent) {
+        // Show warning and return previous cart without changes
+        setWarning(true);
+        setTimeout(() => {
+          setWarning(false);
+        }, 2000); // Hide warning after 2 seconds
+        return prevCart;
+      }
+      // Add item to the cart and return the updated cart
+      return [...prevCart, item];
+    });
   };
 
   // Function to handle item quantity change

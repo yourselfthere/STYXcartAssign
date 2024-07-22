@@ -7,6 +7,7 @@ const list = [
     price: 322,
     img: "https://m.media-amazon.com/images/I/71TqdH9wTmL._AC_UY327_FMwebp_QL65_.jpg",
     amount: 1,
+    category: ["self-help"],
   },
 
   {
@@ -16,6 +17,7 @@ const list = [
     price: 143,
     img: "https://m.media-amazon.com/images/I/81TwewImvVL._AC_UY327_FMwebp_QL65_.jpg",
     amount: 1,
+    category: ["self-help"],
   },
   {
     id: 4,
@@ -24,6 +26,7 @@ const list = [
     price: 218,
     img: "https://m.media-amazon.com/images/I/61xivWmExiL._AC_UY327_FMwebp_QL65_.jpg",
     amount: 1,
+    category: ["self-help", "Year 2023"],
   },
   {
     id: 5,
@@ -33,6 +36,7 @@ const list = [
     price: 213,
     img: "https://m.media-amazon.com/images/I/61TkOFwquPL._AC_UY327_FMwebp_QL65_.jpg",
     amount: 1,
+    category: ["self-help"],
   },
 
   {
@@ -43,6 +47,7 @@ const list = [
     price: 169,
     img: "https://m.media-amazon.com/images/I/61Ktyy7KymL._AC_UY327_FMwebp_QL65_.jpg",
     amount: 1,
+    category: ["self-help", "Year 2023"],
   },
   {
     id: 10,
@@ -51,6 +56,7 @@ const list = [
     price: 147,
     img: "https://m.media-amazon.com/images/I/71dNsRuYL7L._AC_UY327_FMwebp_QL65_.jpg",
     amount: 1,
+    category: ["self-help"],
   },
   {
     id: 11,
@@ -59,6 +65,7 @@ const list = [
     price: 252,
     img: "https://m.media-amazon.com/images/I/91AfEwKjDgL._AC_UY327_FMwebp_QL65_.jpg",
     amount: 1,
+    category: ["self-help", "Year 2023"],
   },
   {
     id: 12,
@@ -67,6 +74,7 @@ const list = [
     price: 161,
     img: "https://m.media-amazon.com/images/I/715qi-cIbML._AC_UY327_FMwebp_QL65_.jpg",
     amount: 1,
+    category: ["self-help"],
   },
   {
     id: 13,
@@ -75,6 +83,7 @@ const list = [
     price: 2649,
     img: "https://m.media-amazon.com/images/I/718X1SWIsjL._AC_UY327_FMwebp_QL65_.jpg",
     amount: 1,
+    category: ["fiction"],
   },
 ];
 
