@@ -89,6 +89,7 @@ const ProductList = ({ items }) => {
                 <p>{item.title}</p>
                 <p>{item.author}</p>
                 <p>Price- {item.price} Rs</p>
+                <p>[{item.category}]</p>
                 <button
                   onClick={() => handleAddToCart(item)}
                   disabled={isAdded}
